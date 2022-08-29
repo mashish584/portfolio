@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <title>Ashish Mehra | Frontend Mobile/Web Developer</title>
@@ -19,32 +21,37 @@
     <header>
       <nav class="flex h-full items-center">
         <ul class="flex justify-between items-center w-full h-fitContent">
-          <li class="nav"><a href="">Ashish Mehra</a></li>
           <li class="nav-item">
-            <a href="">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="sort_24px">
-                  <path
-                    id="icon/content/sort_24px"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M3 6V8H21V6H3ZM3 18H9V16H3V18ZM15 13H3V11H15V13Z"
-                    fill="black"
-                    fill-opacity="0.54"
-                  />
-                </g>
-              </svg>
+            <a class="text initial" href="">
+              <img
+                src="https://ik.imagekit.io/imashish/portfolio/tr:w-70,h-70,f-auto/logo.png"
+              />
             </a>
+          </li>
+          <li class="nav-item">
+            <button id="hamburger">
+              <div class="ham-box">
+                <div class="ham-box-inner"></div>
+              </div>
+            </button>
           </li>
         </ul>
       </nav>
     </header>
+
+    <!-- Mobile Navigation -->
+    <aside>
+      <nav>
+        <ul class="mobile-nav">
+          <li><a href="">Home</a></li>
+          <li><a href="">Work</a></li>
+          <li><a href="">Experience</a></li>
+          <li><a href="">Education</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="layer"></div>
 
     <!-- Personal Info -->
     <main>
@@ -59,9 +66,16 @@
         web/mobile applications with 3 years of experience.<br /><br />
         I’m working with <strong>React/React Native</strong>, <strong>Next.js</strong>,
         <strong>Git</strong> & <strong>Typescript</strong> most of the time & also have basic
-        understanding of:<br />
-        <strong>Node.js (Express)</strong>, <strong>Xcode</strong>,
-        <strong>Android Studio</strong>, <strong>Prisma &</strong> <strong>Figma</strong>.
+        understanding of:<br /><br />
+        <ul class="stack-list flow-content">
+          <li class="text">Node.js (REST and GraphQL)</li>
+          <li class="text">Prisma</li>
+          <li class="text">Apollo and React Query</li>
+          <li class="text">Xcode</li>
+          <li class="text">Android Studio</li>
+          <li class="text">Figma</li>
+        </ul>
+
       </p>
     </main>
 
@@ -190,7 +204,7 @@
               👉 Shifted from web to mobile department for developing mobile application for
               both IOS and Android with React Native .
             </li>
-            <li>
+            <li class="text">
               👉 Worked on web applications (Frontend) to integrate application features.
             </li>
           </ul>
@@ -283,5 +297,36 @@
         </ul>
       </section>
     </div>
+    <!-- Script -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+
+      const body = document.querySelector("body");
+      const layer = document.querySelector(".layer");
+
+      function isMenuActive() {
+        return document.body.classList.contains("blur");
+      }
+
+      function toggleNavigation() {
+        const isActive = isMenuActive();
+        if (isActive) {
+          document.body.classList.remove("blur");
+          layer.style.visibility = "hidden";
+        } else {
+          document.body.classList.add("blur");
+          layer.style.visibility = "visible";
+        }
+      }
+
+      if (hamburger) {
+        hamburger.addEventListener("click", toggleNavigation);
+      }
+
+      if (layer) {
+        console.log("layer");
+        layer.addEventListener("click", toggleNavigation);
+      }
+    </script>
   </body>
 </html>
