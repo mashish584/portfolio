@@ -1,0 +1,317 @@
+/* Variables */
+:root {
+  --space-lg: 3.125rem;
+  --space: 1.875rem;
+  --space-h: 0.9375rem;
+
+  --mb-h-spacing: 1.875rem;
+  --mb-v-spacing: 4.375rem;
+
+  --clr-black: #000000;
+  --clr-blackShade: #414141;
+  --clr-border: #dcdcdc;
+  --clr-shade: #f5f5f5;
+  --clr-white: #ffffff;
+
+  --ff-poppins: "Poppins", sans-serif;
+
+  --fs-xs: 0.75rem; /*12px*/
+  --fs-s: 0.875rem; /*14px*/
+  --fs-base: 1rem; /*16px*/
+  --fs-regular: 1.125rem; /*18px*/
+  --fs-normal: 1.25rem; /*20px*/
+  --fs-medium: 1.5rem; /*24px*/
+  --fs-large: 2.25rem; /*36px*/
+  --fs-xl: 2.875rem; /*46px*/
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semiBold: 600;
+  --fw-bold: 700;
+
+  --radius-curve: 0.625rem;
+
+  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Resets */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul[class],
+ol[class],
+li[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-light);
+  min-height: 100vh;
+  padding-bottom: var(--space);
+}
+
+/* Utitlity Class */
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.touch {
+  padding: 10px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-fitContent {
+  height: fit-content;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flow-content > * + * {
+  margin-top: var(--flow-space, var(--space)) !important;
+}
+
+.text {
+  font-weight: var(--weight, --fw-medium);
+  font-size: var(--fontSize, --fs-normal);
+}
+
+.title {
+  --weight: var(--fw-bold);
+  --fontSize: var(--fs-medium);
+}
+
+.content {
+  margin-top: 1.5rem;
+  --weight: var(--fw-light);
+  --fontSize: var(--fs-base);
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--clr-border);
+  margin: var(--space) 0;
+}
+
+.heading {
+  position: relative;
+  padding-left: 60px;
+}
+
+.heading::before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 3px;
+  top: calc(50% - 1.5px);
+  background: var(--clr-black);
+  margin-left: -60px;
+}
+
+.stack-list,
+.button-group {
+  --flow-space: var(--space-h);
+}
+
+.stack-list li {
+  --weight: var(--fw-bold);
+  --fontSize: var(--fs-s);
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--clr-blackShade);
+}
+
+.stack-list li::before {
+  position: absolute;
+  content: "→";
+  margin-left: -1.5rem;
+}
+
+.button-group {
+  padding: var(--space-h) 0;
+}
+
+.button {
+  --weight: var(--fw-bold);
+  --fontSize: var(--fs-s);
+
+  display: block;
+  width: 12.5rem;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--clr-blackShade);
+  border-radius: var(--radius-curve);
+  background-color: var(--btn-bg, var(--clr-white));
+  color: var(--btn-text, var(--clr-blackShade));
+}
+
+.secondary {
+  --btn-bg: var(--clr-blackShade);
+  --btn-text: var(--clr-white);
+}
+
+/*----------------------
+      Page Syles 
+-------------------------*/
+
+/* Common styles */
+
+header,
+section {
+  padding: 0 var(--mb-h-spacing);
+}
+
+section {
+  margin-bottom: var(--space);
+}
+
+/* Header */
+
+header {
+  height: 5.625rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+main {
+  padding: var(--mb-v-spacing) var(--mb-h-spacing);
+}
+
+.salutation {
+  --weight: var(--fw-medium);
+  --fontSize: var(--fs-normal);
+}
+
+/* Recent Work */
+section .title {
+  text-transform: uppercase;
+}
+
+/* Other Work */
+
+.card {
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--radius-curve);
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: var(--clr-shade);
+  padding: var(--space) 0;
+}
+
+.card-content {
+  --flow-space: 0.3125rem;
+  padding: var(--mb-h-spacing);
+}
+
+.card-content h3 {
+  font-size: var(--fs-medium);
+}
+
+.card-content p {
+  font-size: var(--fs-s);
+  font-weight: var(--fw-light);
+}
+
+/* Work Experience & Education  */
+
+.company,
+.education {
+  --flow-space: var(--space-h);
+}
+
+.year {
+  --weight: var(--fw-regular);
+  --fontSize: var(--fs-s);
+}
+
+.name {
+  --weight: var(--fw-bold);
+  --fontSize: var(--fs-normal);
+}
+.role {
+  --weight: var(--fw-light);
+  --fontSize: var(--fs-s);
+}
+
+.company-responsibilities li {
+  --weight: var(--fw-light);
+  --fontSize: var(--fs-s);
+}
+
+/* Contact */
+
+.social-list li {
+  display: inline-block;
+  margin-left: -10px;
+}
