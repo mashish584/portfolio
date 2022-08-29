@@ -5,7 +5,6 @@
   --space-h: 0.9375rem;
 
   --mb-h-spacing: 1.875rem;
-  --mb-v-spacing: 4.375rem;
 
   --clr-black: #000000;
   --clr-blackShade: #414141;
@@ -225,13 +224,12 @@ body {
 
 /* Common styles */
 
-header,
-section {
+header {
   padding: 0 var(--mb-h-spacing);
 }
 
 section {
-  margin-bottom: var(--space);
+  padding: var(--space-h) var(--mb-h-spacing);
 }
 
 /* Header */
@@ -242,7 +240,7 @@ header {
 }
 
 main {
-  padding: var(--mb-v-spacing) var(--mb-h-spacing);
+  padding: 4.375rem var(--mb-h-spacing);
 }
 
 .salutation {
@@ -284,6 +282,11 @@ section .title {
 }
 
 /* Work Experience & Education  */
+
+.company-section .heading,
+.education-section .heading {
+  margin-bottom: var(--space-h);
+}
 
 .company,
 .education {
