@@ -266,10 +266,6 @@ body.blur .main-content > * {
   user-select: none;
 }
 
-.desktop-image {
-  display: none;
-}
-
 .divider {
   display: none;
 }
@@ -282,12 +278,7 @@ body.blur .main-content > * {
 }
 
 @media (min-width: 70rem) {
-  .mobile-image {
-    display: none;
-  }
-
-  .divider,
-  .desktop-image {
+  .divider {
     display: block;
   }
 
@@ -320,6 +311,11 @@ nav ul {
 
 .desktop-nav {
   display: none;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
 }
 
 .initial {
@@ -629,6 +625,16 @@ main .title {
   display: inline-block;
 }
 
+.habitual-app-image {
+  width: 151px;
+  height: 303px;
+}
+
+.habitual-portal-image {
+  width: 300px;
+  height: 190px;
+}
+
 /* Media Queries */
 
 @media (min-width: 70rem) {
@@ -756,6 +762,16 @@ main .title {
 
   .recent-work img {
     object-fit: contain;
+  }
+
+  .habitual-app-image {
+    width: 250px;
+    height: 501px;
+  }
+
+  .habitual-portal-image {
+    width: 500px;
+    height: 430px;
   }
 
   /* Other Work */
