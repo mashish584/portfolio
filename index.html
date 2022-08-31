@@ -15,7 +15,11 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico" />
-    <title>Ashish Mehra | Frontend Mobile/Web Developer</title>
+    <title>Ashish Mehra - Frontend Mobile/Web Developer</title>
+    <meta
+      name="description"
+      content="Ashish Mehra is a Javascript Developer from Kashipur, Uttarakhand who is currently living in New Delhi, India & have over 3 years of professional experience in React & React Native."
+    />
   </head>
 
   <body>
@@ -23,9 +27,12 @@
       <nav class="flex container h-full items-center justify-between">
         <ul class="main-nav flex justify-between items-center h-fitContent">
           <li class="nav-item">
-            <a class="text initial" href="">
+            <a class="text initial" href="#home">
               <img
-                src="https://ik.imagekit.io/imashish/portfolio/tr:w-70,h-70,f-auto/logo.png"
+                width="70"
+                height="70"
+                alt="Ashish Mehra"
+                src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto/logo.png"
               />
             </a>
           </li>
@@ -38,12 +45,12 @@
           </li>
         </ul>
         <ul class="desktop-nav">
-          <li class="work"><a href="">Work</a></li>
-          <li class="experience"><a href="">Experience</a></li>
-          <li class="education"><a href="">Education</a></li>
-          <li class="contact"><a href="">Contact</a></li>
+          <li class="work"><a href="#work">Work</a></li>
+          <li class="experience"><a href="#experience">Experience</a></li>
+          <li class="education"><a href="#education">Education</a></li>
+          <li class="contact"><a href="#contact">Contact</a></li>
         </ul>
-        <a href="" target="_blank" class="text button secondary">Download CV</a>
+        <a href="#downloadCV" target="_blank" class="text button secondary">Download CV</a>
       </nav>
     </header>
 
@@ -51,12 +58,12 @@
     <aside>
       <nav>
         <ul class="mobile-nav">
-          <li class="work"><a href="">Work</a></li>
-          <li class="experience"><a href="">Experience</a></li>
-          <li class="education"><a href="">Education</a></li>
-          <li class="contact"><a href="">Contact</a></li>
+          <li class="work"><a href="#work">Work</a></li>
+          <li class="experience"><a href="#experience">Experience</a></li>
+          <li class="education"><a href="#education">Education</a></li>
+          <li class="contact"><a href="#contact">Contact</a></li>
           <li class="">
-            <a href="" target="_blank" class="text button secondary">Download CV</a>
+            <a href="#downloadCV" target="_blank" class="text button secondary">Download CV</a>
           </li>
         </ul>
       </nav>
@@ -93,11 +100,15 @@
             <img
               class="mobile-image"
               width="151"
+              height="271"
+              alt="Habitual Ecommerce Profile Screen"
               src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,w-3600/habitual-ecommerce-profile.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661740526785"
             />
             <img
               class="desktop-image"
               width="250"
+              height="501"
+              alt="Habitual Ecommerce Home Screen"
               src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,w-2250/habitual-ecommerce-home.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661822480842"
             />
 
@@ -131,7 +142,9 @@
                   class="text button"
                   >Source Code</a
                 >
-                <a href="" target="_blank" class="text button secondary">Download .apk</a>
+                <a href="#downloadAPK" target="_blank" class="text button secondary"
+                  >Download .apk</a
+                >
               </div>
             </div>
           </div>
@@ -139,12 +152,16 @@
             <img
               class="mobile-image"
               width="300"
+              height="207"
+              alt="Habitual Admin Portal Product Detail"
               src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,lo-true/habitual-portal-profile_RANyRhXGq.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661849555499"
             />
 
             <img
               width="500"
+              height="430"
               class="desktop-nav"
+              alt="Habitual Admin Portal User Profile"
               src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,lo-true/habitual_portal_ko1r0suEA.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661849400418"
             />
             <div class="block-context flow-content">
@@ -168,7 +185,9 @@
                   class="text button"
                   >Source Code</a
                 >
-                <a href="" target="_blank" class="text button secondary">View Portal</a>
+                <a href="#viewPortal" target="_blank" class="text button secondary"
+                  >View Portal</a
+                >
               </div>
             </div>
           </div>
@@ -184,7 +203,9 @@
                   <img
                     src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,w-2200/ep.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661755835747"
                     width="281"
+                    height="190"
                     loading="lazy"
+                    alt="Event Planning"
                     class="mx-auto"
                   />
                 </div>
@@ -203,7 +224,9 @@
                   <img
                     src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,w-3600/foodies.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661757662462"
                     width="257"
+                    height="190"
                     loading="lazy"
+                    alt="Foodies"
                     class="mx-auto"
                   />
                 </div>
@@ -222,7 +245,9 @@
                   <img
                     src="https://ik.imagekit.io/imashish/portfolio/tr:f-auto,w-2500/codepen_MeLkG5w4F.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661846438794"
                     width="257"
+                    height="177"
                     loading="lazy"
+                    alt="Codepen UI by Ashish Mehra"
                     class="mx-auto"
                   />
                 </div>
@@ -360,13 +385,20 @@
           <h2 class="heading">Contact</h2>
           <p class="contact">
             Get in touch or shoot me an email directly on
-            <a class="external-link" href="">ashishmehra.dev@gmail.com</a>
+            <a class="external-link" href="mailto:ashishmehra.dev@gmail.com"
+              >ashishmehra.dev@gmail.com</a
+            >
           </p>
           <div class="line"></div>
           <div class="contact-meta flex justify-between items-center">
             <ul class="social-list">
               <li>
-                <a class="flex touch" target="_blank" href="">
+                <a
+                  class="flex touch"
+                  target="_blank"
+                  aria-label="View linkedin profile"
+                  href="https://www.linkedin.com/in/mehraas/"
+                >
                   <svg
                     width="20"
                     height="20"
@@ -382,7 +414,12 @@
                 </a>
               </li>
               <li>
-                <a class="flex touch" target="_blank" href="">
+                <a
+                  class="flex touch"
+                  aria-label="View twitter profile"
+                  target="_blank"
+                  href="https://twitter.com/mehra_as"
+                >
                   <svg
                     width="20"
                     height="18"
@@ -398,7 +435,12 @@
                 </a>
               </li>
               <li>
-                <a class="flex touch" target="_blank" href="">
+                <a
+                  class="flex touch"
+                  aria-label="View github profile"
+                  target="_blank"
+                  href="https://github.com/mashish584"
+                >
                   <svg
                     width="20"
                     height="20"
