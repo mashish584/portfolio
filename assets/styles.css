@@ -313,11 +313,6 @@ nav ul {
   display: none;
 }
 
-.logo {
-  width: 70px;
-  height: 70px;
-}
-
 .initial {
   --weight: var(--fw-bold);
   --fontSize: var(--fs-medium);
@@ -536,9 +531,9 @@ main .title {
 
 /* Other Work */
 
-.other-work {
+/* .other-work {
   padding: var(--space) 0;
-}
+} */
 
 .other-work > a {
   display: block;
