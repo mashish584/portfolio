@@ -42,6 +42,7 @@
           <li class="education"><a href="">Education</a></li>
           <li class="contact"><a href="">Contact</a></li>
         </ul>
+        <a href="" target="_blank" class="text button secondary">Download CV</a>
       </nav>
     </header>
 
@@ -53,6 +54,9 @@
           <li class="experience"><a href="">Experience</a></li>
           <li class="education"><a href="">Education</a></li>
           <li class="contact"><a href="">Contact</a></li>
+          <li class="">
+            <a href="" target="_blank" class="text button secondary">Download CV</a>
+          </li>
         </ul>
       </nav>
     </aside>
@@ -124,7 +128,7 @@
                   class="text button"
                   >Source Code</a
                 >
-                <a href="" class="text button secondary">Download .apk</a>
+                <a href="" target="_blank" class="text button secondary">Download .apk</a>
               </div>
             </div>
           </div>
@@ -158,7 +162,7 @@
                   class="text button"
                   >Source Code</a
                 >
-                <a href="" class="text button secondary">View Portal</a>
+                <a href="" target="_blank" class="text button secondary">View Portal</a>
               </div>
             </div>
           </div>
@@ -422,6 +426,7 @@
 
       const main = document.querySelector("main");
       const sections = document.querySelectorAll("section");
+      const navs = document.querySelectorAll("nav");
 
       function isMenuActive() {
         return document.body.classList.contains("blur");
@@ -445,6 +450,41 @@
       if (layer) {
         layer.addEventListener("click", toggleNavigation);
       }
+
+      if (navs) {
+        function attachNavListener(nav, index) {
+          function activeNavigation(e) {
+            e.preventDefault();
+            const target = e.target;
+            if (target.nodeName === "A") {
+              const parentElement = target.parentElement;
+              const activeElement = document.querySelector("nav li.active");
+              const className = parentElement.classList[0];
+              const targetSection = document.getElementById(className);
+              if (activeElement) activeElement.classList.remove("active");
+              if (index === 1) toggleNavigation();
+              parentElement.classList.add("active");
+              window.scrollTo({
+                top: targetSection.offsetTop - 90,
+                behavior: "smooth",
+              });
+            }
+          }
+
+          nav.addEventListener("click", activeNavigation);
+        }
+
+        navs.forEach(attachNavListener);
+      }
+
+      window.onload = function () {
+        if (pageYOffset > 0) {
+          window.scroll({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
+      };
     </script>
   </body>
 </html>

@@ -244,7 +244,10 @@ body {
   border: 2px solid var(--clr-blackShade);
   border-radius: var(--radius-curve);
   background-color: var(--btn-bg, var(--clr-white));
-  color: var(--btn-text, var(--clr-blackShade));
+  color: var(--btn-text, var(--clr-blackShade)) !important;
+  font-weight: var(--fw-bold) !important;
+  text-align: center;
+  text-decoration: none;
 }
 
 .secondary {
@@ -380,6 +383,15 @@ aside nav {
   color: var(--clr-black);
   font-size: var(--fs-medium);
   font-weight: var(--fw-medium);
+}
+
+.mobile-nav li .button {
+  width: 10rem;
+  font-size: var(--fs-base);
+}
+
+.desktop-nav + .button {
+  display: none;
 }
 
 .ham-box {
@@ -600,7 +612,7 @@ main .title {
 
 .contact-section {
   margin-top: var(--space);
-  font-size: var(--fs-base);
+  font-size: var(--fs-s);
 }
 
 .contact-meta {
@@ -625,6 +637,10 @@ main .title {
     display: block;
   }
 
+  .desktop-nav + .button {
+    display: flex;
+  }
+
   .main-nav {
     width: auto;
   }
@@ -643,6 +659,10 @@ main .title {
 
   .desktop-nav li.active a {
     font-weight: var(--fw-bold);
+  }
+
+  nav .button {
+    width: 10rem;
   }
 
   /* .desktop-nav li.active a {
@@ -823,6 +843,7 @@ main .title {
 
   .contact-section {
     margin-top: 0;
+    font-size: var(--fs-base);
   }
 
   .contact {
