@@ -73,15 +73,15 @@
     <div class="container">
       <!-- Personal Info -->
       <main>
-        <p class="text salutation">Hi there,</p>
+        <p class="text salutation">Hi there!</p>
         <h3 class="text title">
-          I'm Ashish Mehra <br />
+          I'm Ashish Mehra.<br />
           I build mobile & web applications.
         </h3>
         <p class="text bio">
-          I'm a visual learner & self-taught developer having 3 years of experience in building
-          mobile/web applications.<br /><br />
-          I like to explore and learn different things in my spare time & mostly do front-end
+          I'm a visual learner & a self-taught developer having 3 years of experience in
+          building mobile & web applications.<br /><br />
+          I like to explore and learn different things in my spare time & I mostly do front-end
           development in
           <strong>React</strong>, <strong>React Native</strong>, <strong>Next.js</strong>, &
           <strong>Typescript</strong>.
@@ -89,8 +89,8 @@
           <br />
           I also have working experience with technologies like,
           <strong>Node.js (REST and GraphQL)</strong>, <strong>Prisma</strong>,
-          <strong>Apollo</strong>,<strong>Xcode</strong>, <strong>Android Studio</strong> &
-          <strong>Figma</strong>.
+          <strong>Apollo</strong> and tools like <strong>Xcode</strong>,
+          <strong>Android Studio</strong> & <strong>Figma</strong>.
         </p>
       </main>
 
@@ -112,10 +112,10 @@
                 Ecommerce App
               </h3>
               <p class="text content">
-                Ecommerce application where user can select the product categories they are
-                interested in during the onboarding process to easily checkout the interested
-                product from home screen.<br /><br />
-                Design and concept used in the mobile application is from
+                An E-Commerce application where the users can browse the various product
+                categories based on their interests and seamlessly shop their choices while
+                proceeding to an easy check out from the home screen itself.<br /><br />
+                The Design and concept used in the mobile application are from
                 <a
                   href="https://zerotomastery.io/courses/learn-web-design/"
                   class="external-link"
@@ -288,7 +288,11 @@
                 </div>
                 <ul class="wc-responsibilities">
                   <li class="text">
-                    👉 Build performant dashboard in React.js for the product platform.
+                    👉 Build dashboard in React.js for the product platform.
+                  </li>
+                  <li class="text">
+                    👉 Improved the dashboard performance by profiling the components and
+                    detaching the unnecessary render by colocating the state.
                   </li>
                   <li class="text">
                     👉 Learned different AWS services like Lambda, S3 & DynamoDB.
@@ -314,6 +318,15 @@
                   <li class="text">
                     👉 Worked on multiple web applications for functionality integration,
                     components development & setting up the project boilerplate.
+                  </li>
+                  <li class="text">
+                    👉 Worked on problems like creating custom UI for calendar (Day, Week and
+                    Month) view, swipe picker and graphs like bellgraph and snowflake and also
+                    took decisions related to component designs.
+                  </li>
+                  <li class="text">
+                    👉 Create a form validation framework using module pattern in javascript by
+                    taking care of all possible use cases.
                   </li>
                   <li class="text">
                     👉 Conduct interviews, trained new hires & shared my learnings with them.
@@ -501,7 +514,8 @@
           function activeNavigation(e) {
             e.preventDefault();
             const target = e.target;
-            if (target.nodeName === "A") {
+
+            if (target.nodeName === "A" && !target.classList.contains("button")) {
               const parentElement = target.parentElement;
               const activeElement = document.querySelector("nav li.active");
               const className = parentElement.classList[0];
@@ -513,6 +527,10 @@
                 top: targetSection.offsetTop - 90,
                 behavior: "smooth",
               });
+            }
+
+            if (target.classList.contains("button") && index === 1) {
+              toggleNavigation();
             }
           }
 
@@ -530,6 +548,44 @@
           });
         }
       };
+    </script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+      import {
+        getAnalytics,
+        logEvent,
+      } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCCQcCRncGqhN164LLAT8PrRrOx3ZypI8k",
+        authDomain: "portfolio-adbe0.firebaseapp.com",
+        projectId: "portfolio-adbe0",
+        storageBucket: "portfolio-adbe0.appspot.com",
+        messagingSenderId: "740127512403",
+        appId: "1:740127512403:web:d9f2f859e78eea083173a6",
+        measurementId: "G-J4DQ35CBY6",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const buttons = document.querySelectorAll("a.button");
+
+      function logButtonEvent(e) {
+        const target = e.target;
+        if (analytics) {
+          logEvent(analytics, `User visit ${target.href}`);
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", logButtonEvent);
+      });
     </script>
   </body>
 </html>
