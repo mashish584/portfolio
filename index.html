@@ -65,15 +65,10 @@
           <li class="experience"><a href="#experience">Experience</a></li>
           <li class="education"><a href="#education">Education</a></li>
           <li class="contact"><a href="#contact">Contact</a></li>
-          <li class="">
-            <a
-              href="/assets/ashish-mehra-resume.pdf"
-              target="_blank"
-              class="text button secondary"
-              >Download CV</a
-            >
-          </li>
         </ul>
+        <a href="/assets/ashish-mehra-resume.pdf" target="_blank" class="text button secondary"
+          >Download CV</a
+        >
       </nav>
     </aside>
     <div class="layer"></div>
@@ -184,7 +179,10 @@
                   class="text button"
                   >Source Code</a
                 >
-                <a href="#viewPortal" target="_blank" class="text button secondary"
+                <a
+                  href="https://habitual-test-platform.vercel.app"
+                  target="_blank"
+                  class="text button secondary"
                   >View Portal</a
                 >
               </div>
@@ -287,20 +285,21 @@
                   </li>
                   <li class="text">
                     👉 Tackled various problems across verticals from creating a custom
-                    calendar view UI, and swipe picker to interactive data visualizations like
-                    bell graphs and snowflake.
+                    calendar view UI, swipe pickers and custom graphs in CSS & JS for data
+                    visualization.
                   </li>
                   <li class="text">
                     👉 Contributed to design thinking and planning with actionable feedback and
                     insights.
                   </li>
                   <li class="text">
-                    👉 developed a form validation framework using module patterns in JS around
+                    👉 Developed a form validation framework using module patterns in JS around
                     multiple use cases ranging across our set of applications.
                   </li>
                   <li class="text">
-                    👉 Participated in interviews and trained new hires while sharing my
-                    knowledge and exp
+                    👉 Participated in interviews and trained new hires in such a way that they
+                    can work independently with less supervision and should be able to solve
+                    problems on their own.
                   </li>
                 </ul>
 
@@ -544,7 +543,7 @@
             });
           }
 
-          if (target.classList.contains("button") && index === 1) {
+          if (target.classList.contains("button") && isMobileNavigation) {
             toggleNavigation();
           }
         }

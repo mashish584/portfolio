@@ -810,14 +810,14 @@ main .title {
     width: 2px;
     top: 10%;
     bottom: 0;
-    height: 80%;
+    height: 90%;
     left: 50%;
+    transform: translateY(-10%);
     background-color: var(--clr-black);
   }
 
   .wc {
     display: flex;
-    align-items: center;
   }
 
   .wc > * {
@@ -831,10 +831,11 @@ main .title {
     --fontSize: var(--fs-base);
     --weight: var(--fw-medium);
     text-align: center;
+    margin-top: 10px;
   }
 
   .wc div .active-circle {
-    top: calc(50% - 15px);
+    top: 10px;
     left: -5.89rem;
   }
 
