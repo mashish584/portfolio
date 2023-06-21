@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "38A53G4922.com.locofastcustomerapp",
+        "paths": ["*"]
+      }
+    ]
+  }
+}
