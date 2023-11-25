@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "98D42UDJ8T.com.bytelearn.test.app",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+}
