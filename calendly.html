@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #root,
+      iframe {
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+    ></script>
+    <script>
+      Calendly.initInlineWidget({
+        url: "https://calendly.com/ashish-mehra/tutor-session",
+        parentElement: document.getElementById("root"),
+      });
+
+      function isCalendlyEvent(e) {
+        return e.data.event && e.data.event.indexOf("calendly") === 0;
+      }
+
+      window.addEventListener("message", function (e) {
+        if (isCalendlyEvent(e)) {
+          window?.ReactNativeWebView?.postMessage(JSON.stringify(e.data));
+        }
+      });
+    </script>
+  </body>
+</html>
