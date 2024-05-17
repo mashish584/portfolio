@@ -625,6 +625,10 @@ m752 -1199 c402 -70 732 -353 851 -730 167 -530 -134 -1101 -679 -1286 -147
           });
         }
       };
+
+      window.addEventListener("message", (event) => {
+        console.log(`Received message: ${event.data}`);
+      });
     </script>
 
     <script type="module">
