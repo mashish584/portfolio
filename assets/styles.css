@@ -10,6 +10,7 @@
 
   --clr-black: #000000;
   --clr-blackShade: #414141;
+  --clr-gray: #a9a9a9;
   --clr-border: #dcdcdc;
   --clr-shade: #f5f5f5;
   --clr-white: #ffffff;
@@ -584,8 +585,17 @@ main .title {
 }
 
 .wc-info .name {
+  position: relative;
   --weight: var(--fw-bold);
   --fontSize: var(--fs-normal);
+}
+
+.wc-info .name > .link {
+  position: absolute;
+  margin-left: 5px;
+  font-size: 10px;
+  top: calc(50% - 5px);
+  color: var(--clr-black);
 }
 
 .wc-info .role {
@@ -597,6 +607,31 @@ main .title {
   --weight: var(--fw-light);
   --fontSize: var(--fs-s);
   margin-bottom: 0.5rem;
+}
+
+.wc-projects {
+  display: flex;
+  flex-direction: row;
+}
+
+.wc-projects li {
+  margin-right: 5px;
+}
+
+.wc-projects a {
+  font-size: 12px;
+  padding: 5px;
+  color: var(--clr-black);
+  transition: 150ms ease-in;
+  text-decoration: none;
+}
+
+.wc-projects i {
+  font-size: 16px;
+}
+
+.wc-projects a:hover {
+  color: var(--clr-gray);
 }
 
 /* Contact */
@@ -843,8 +878,16 @@ main .title {
     display: none;
   }
 
-  .education .wc {
+  #education .wc {
     min-height: 9.375rem;
+  }
+
+  #experience .divider {
+    height: 95%;
+  }
+
+  #education .divider {
+    height: 85%;
   }
 
   /* Contact */
