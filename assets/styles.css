@@ -209,6 +209,22 @@ body {
   --flow-space: var(--space-h);
 }
 
+.stack-chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.stack-chips li {
+  padding: 5px 15px;
+  background-color: var(--clr-blackShade);
+  color: var(--clr-white);
+  margin-right: 7px;
+  margin-top: 7px;
+  border-radius: 16px;
+  font-size: var(--fs-s);
+}
+
 .button-group > a {
   text-decoration: none;
 }
@@ -278,9 +294,13 @@ body.blur .main-content > * {
   align-items: center;
 }
 
-@media (min-width: 70rem) {
+@media (min-width: 70rem), (min-width: 65rem) and (orientation: portrait) {
   .divider {
     display: block;
+  }
+
+  .stack-chips {
+    width: 80%;
   }
 
   .stack-list li {
@@ -508,7 +528,7 @@ main .title {
   margin-bottom: 0.25rem;
 }
 
-@media (min-width: 70rem) {
+@media (min-width: 70rem), (min-width: 65rem) and (orientation: portrait) {
   .salutation {
     --fontSize: var(--fs-normal);
   }
@@ -532,9 +552,9 @@ main .title {
 
 /* Other Work */
 
-/* .other-work {
+.other-work {
   padding: var(--space) 0;
-} */
+}
 
 .other-work > a {
   display: block;
@@ -666,8 +686,36 @@ main .title {
 }
 
 /* Media Queries */
+@media (min-width: 35rem) and (max-width: 65rem) {
+  main {
+    min-height: 50vh;
+  }
 
-@media (min-width: 70rem) {
+  .button-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .button-group > a + a {
+    margin-top: 0;
+    margin-left: var(--space-h);
+  }
+
+  .heading {
+    font-size: var(--fs-medium);
+  }
+}
+
+@media (min-width: 65rem) and (orientation: portrait) {
+  main {
+    min-height: 50vh;
+  }
+  .container {
+    max-width: 65rem;
+  }
+}
+
+@media (min-width: 70rem), (min-width: 65rem) and (orientation: portrait) {
   /* Navigation */
   .desktop-nav {
     display: block;
@@ -846,7 +894,7 @@ main .title {
     top: 10%;
     bottom: 0;
     height: 90%;
-    left: 50%;
+    left: calc(50% - 45px);
     transform: translateY(-10%);
     background-color: var(--clr-black);
   }
@@ -857,8 +905,7 @@ main .title {
 
   .wc > * {
     position: relative;
-    width: 30rem;
-    margin-left: auto;
+    flex: 1;
     margin-top: 0;
   }
 
@@ -871,7 +918,7 @@ main .title {
 
   .wc div .active-circle {
     top: 10px;
-    left: -5.89rem;
+    left: calc(-45px - 0.9375rem);
   }
 
   .wc-info .year {
