@@ -756,6 +756,19 @@ m752 -1199 c402 -70 732 -353 851 -730 167 -530 -134 -1101 -679 -1286 -147
       const desktopNavigation = document.querySelector(".desktop-nav");
       const mobileNavigation = document.querySelector(".mobile-nav");
 
+      function loadFontAwesome() {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href =
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css";
+        link.integrity =
+          "sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==";
+        link.crossOrigin = "anonymous";
+        link.referrerPolicy = "no-referrer";
+
+        document.head.appendChild(link);
+      }
+
       function isMenuActive() {
         return document.body.classList.contains("blur");
       }
@@ -808,17 +821,8 @@ m752 -1199 c402 -70 732 -353 851 -730 167 -530 -134 -1101 -679 -1286 -147
       }
 
       window.onload = function () {
-        if (pageYOffset > 0) {
-          // window.scroll({
-          //   top: 0,
-          //   behavior: "smooth",
-          // });
-        }
+        loadFontAwesome();
       };
-
-      window.addEventListener("message", (event) => {
-        console.log(event);
-      });
     </script>
 
     <script type="module">
