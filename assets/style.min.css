@@ -673,7 +673,8 @@ main {
   margin: 0 0 .5rem
 }
 
-.habitual-app-image {
+.habitual-app-image,
+.moneypal-app-image {
   width: 151px;
   height: 303px
 }
@@ -853,7 +854,8 @@ main {
     object-fit: contain
   }
 
-  .habitual-app-image {
+  .habitual-app-image,
+  .moneypal-app-image {
     width: 250px;
     height: 501px
   }

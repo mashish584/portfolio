@@ -723,6 +723,11 @@ main .title {
   display: inline-block;
 }
 
+.moneypal-app-image {
+  width: 151px;
+  height: 303px;
+}
+
 .habitual-app-image {
   width: 151px;
   height: 303px;
@@ -891,6 +896,11 @@ main .title {
 
   .recent-work img {
     object-fit: contain;
+  }
+
+  .moneypal-app-image {
+    width: 250px;
+    height: 501px;
   }
 
   .habitual-app-image {
