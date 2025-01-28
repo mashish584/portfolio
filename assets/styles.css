@@ -552,7 +552,8 @@ header {
 
 main {
   padding: 0 var(--mb-h-spacing);
-  padding-top: calc(var(--nav-height));
+  padding-top: calc(var(--nav-height) + 25px);
+  padding-bottom: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
