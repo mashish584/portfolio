@@ -147,6 +147,11 @@ button {
   border: none;
 }
 
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--ff-poppins);
   font-size: var(--fs-base);
