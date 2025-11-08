@@ -1,0 +1,17 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.ashishmehra.dev"
+        }
+      ],
+      "destination": "https://ashishmehra.dev/:path*",
+      "permanent": true
+    }
+  ],
+  "trailingSlash": false
+}
+
