@@ -95,6 +95,44 @@
     transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
 }
 
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --clr-black: #e0e0e0;
+  --clr-blackShade: #b8b8b8;
+  --clr-gray: #a9a9a9;
+  --clr-border: #404040;
+  --clr-shade: #2d2d2d;
+  --clr-white: #1e1e1e;
+  --nav-bg: rgba(30, 30, 30, 0.85);
+  --box-shadow: 0px 0px 4px 0px rgb(255 255 255 / 8%);
+  --box-shadow-active: 0px 4px 0px 0px rgb(255 255 255 / 5%);
+}
+
+/* Dark Theme SVG and Icon Adjustments */
+[data-theme="dark"] svg path[fill="black"],
+[data-theme="dark"] svg path[fill="#000000"],
+[data-theme="dark"] svg g[fill="black"],
+[data-theme="dark"] svg g[fill="#000000"],
+[data-theme="dark"] svg *[fill="black"],
+[data-theme="dark"] svg *[fill="#000000"] {
+  fill: var(--clr-black);
+}
+
+[data-theme="dark"] .social-list svg g[fill="#000000"],
+[data-theme="dark"] .social-list svg g[fill="black"] {
+  fill: var(--clr-black) !important;
+}
+
+/* Dark Theme Logo Adjustment */
+[data-theme="dark"] .main-nav img,
+[data-theme="dark"] nav .initial img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .wc-info .name>.link {
+  color: var(--clr-black);
+}
+
 /* Resets */
 
 *,
@@ -157,8 +195,10 @@ body {
   font-size: var(--fs-base);
   font-weight: var(--fw-light);
   color: var(--clr-black);
+  background-color: var(--clr-white);
   min-height: 100vh;
   padding-bottom: var(--space);
+  transition: background-color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* Utitlity Class */
@@ -612,7 +652,7 @@ main .title {
 
 .other-work>a {
   display: block;
-  color: initial;
+  color: var(--clr-black);
   text-decoration: none;
 }
 
@@ -636,11 +676,13 @@ main .title {
 
 .card-content h3 {
   font-size: var(--fs-medium);
+  color: var(--clr-black);
 }
 
 .card-content p {
   font-size: var(--fs-s);
   font-weight: var(--fw-light);
+  color: var(--clr-black);
 }
 
 /* Work Experience & Education  */

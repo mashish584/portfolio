@@ -5,8 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Theme Detection Script - Must run before stylesheet to prevent flash -->
+  <script>
+    (function() {
+      const currentHour = new Date().getHours();
+      // Night mode: 6 PM (18:00) to 6 AM (05:59)
+      if (currentHour >= 18 || currentHour < 6) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="./assets/style.min.css" />
+  <link rel="stylesheet" href="./assets/styles.css" />
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico" />
   <title>Ashish Mehra - Frontend Mobile & Web Developer</title>
   <meta name="description"
