@@ -38,12 +38,12 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@mehra_as" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-949043903"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4DQ35CBY6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag("js", new Date());
-    gtag("config", "AW-949043903");
+    gtag("config", "G-J4DQ35CBY6");
   </script>
 
   <script type="application/ld+json">
@@ -77,6 +77,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <a href="#top" class="logo" title="Ashish Mehra" aria-label="Ashish Mehra — back to top">
@@ -86,8 +87,8 @@
       <nav class="nav" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#contact" class="hide-sm">Contact</a>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
           <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
@@ -102,21 +103,21 @@
     </div>
   </header>
 
-  <main id="top" class="wrap">
+  <main id="top" class="wrap" tabindex="-1">
     <!-- Intro -->
     <section class="hero reveal">
       <p class="status">Senior Software Engineer at Appinventiv</p>
       <h1>Ashish Mehra.<br /><span class="muted">I build mobile &amp; web apps.</span></h1>
       <p>
-        Senior software engineer with 6+ years shipping production mobile and web apps in
+        I've spent 6+ years shipping production mobile and web apps in
         <strong>React Native</strong>, <strong>React</strong>, <strong>Next.js</strong> and
         <strong>TypeScript</strong>. These days I build with AI coding agents — I plan, steer and
         review while agents handle much of the implementation — and I'm learning to build AI
         systems: RAG, agentic workflows and MCP tools.
       </p>
       <p>
-        Lately I've been building <a class="inline-link" href="https://play.google.com/store/apps/details?id=com.buddigo"
-          target="_blank" rel="noopener">Buddigo</a>, a travel companion app that took 3rd place at
+        My travel companion app <a class="inline-link" href="https://play.google.com/store/apps/details?id=com.buddigo"
+          target="_blank" rel="noopener">Buddigo</a> won 3rd place at
         <a class="inline-link" href="https://www.notjusthack.com/" target="_blank" rel="noopener">notJustHack 2024</a>.
       </p>
 
@@ -367,11 +368,6 @@
       <h2>Let's build something.</h2>
       <p>I'm always happy to talk about new projects, ideas, or opportunities. My inbox is open.</p>
       <a class="email-link" href="mailto:ashishmehra.dev@gmail.com">ashishmehra.dev@gmail.com</a>
-      <div class="contact-links">
-        <a class="arrow-link" href="https://www.linkedin.com/in/mehraas/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="arrow-link" href="https://github.com/mashish584" target="_blank" rel="noopener">GitHub</a>
-        <a class="arrow-link" href="/assets/ashish-mehra-resume.pdf" target="_blank" rel="noopener">Résumé</a>
-      </div>
     </section>
   </main>
 
@@ -392,11 +388,18 @@
       var root = document.documentElement;
 
       // Theme toggle (persists choice)
-      document.getElementById("theme-toggle").addEventListener("click", function () {
+      var themeToggle = document.getElementById("theme-toggle");
+      function labelThemeToggle() {
+        var dark = root.getAttribute("data-theme") === "dark";
+        themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      }
+      labelThemeToggle();
+      themeToggle.addEventListener("click", function () {
         var dark = root.getAttribute("data-theme") !== "dark";
         if (dark) root.setAttribute("data-theme", "dark");
         else root.removeAttribute("data-theme");
         try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+        labelThemeToggle();
       });
 
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -444,24 +447,12 @@
     })();
   </script>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
-    import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
-
-    const app = initializeApp({
-      apiKey: "AIzaSyCCQcCRncGqhN164LLAT8PrRrOx3ZypI8k",
-      authDomain: "portfolio-adbe0.firebaseapp.com",
-      projectId: "portfolio-adbe0",
-      storageBucket: "portfolio-adbe0.appspot.com",
-      messagingSenderId: "740127512403",
-      appId: "1:740127512403:web:d9f2f859e78eea083173a6",
-      measurementId: "G-J4DQ35CBY6",
-    });
-    const analytics = getAnalytics(app);
-
+  <script>
     // Log outbound and mailto clicks
-    document.querySelectorAll('a[target="_blank"], a[href^="mailto:"]').forEach((a) => {
-      a.addEventListener("click", () => logEvent(analytics, `User visit ${a.href}`));
+    document.querySelectorAll('a[target="_blank"], a[href^="mailto:"]').forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (window.gtag) gtag("event", "link_click", { link_url: a.href });
+      });
     });
   </script>
 </body>
