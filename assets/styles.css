@@ -297,6 +297,30 @@ section {
   margin-top: 2.25rem;
 }
 
+.toolbox {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 2.25rem;
+  font-size: 0.875rem;
+}
+
+.toolbox div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+}
+
+.toolbox dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  padding-top: 0.15rem;
+}
+
+.toolbox dd {
+  color: var(--text-muted);
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
