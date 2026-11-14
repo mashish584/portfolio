@@ -183,6 +183,34 @@ section {
   margin-bottom: 2rem;
 }
 
+/* Section label with a link pushed to the far end of the same line */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-head .section-label {
+  margin-bottom: 0;
+}
+
+/* The one highlighted link on the page: the resume download */
+.arrow-link.cta-link {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 600;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.arrow-link.cta-link:hover {
+  background: var(--accent-text);
+  color: var(--bg);
+}
+
 /* Header ----------------------------------------------------------------- */
 
 .site-header {
@@ -334,13 +362,6 @@ section {
   text-decoration-color: var(--accent);
 }
 
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 2.25rem;
-}
-
 .toolbox {
   display: grid;
   gap: 0.35rem;
@@ -371,40 +392,6 @@ section {
 
 .toolbox-next dd {
   color: var(--text);
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.875rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--text-muted);
-  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
-}
-
-.pill:hover {
-  color: var(--text);
-  border-color: var(--text-faint);
-}
-
-.pill--primary {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-}
-
-.pill--primary:hover {
-  background: var(--accent-text);
-  border-color: var(--accent-text);
-  color: var(--bg);
-}
-
-.pill svg {
-  width: 0.95rem;
-  height: 0.95rem;
 }
 
 /* Projects --------------------------------------------------------------- */
