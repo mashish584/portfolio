@@ -10,6 +10,7 @@
   --text-muted: #6f6b64;
   --text-faint: #a19c94;
   --border: #e6e2db;
+  --border-subtle: #f0ede8;
   --accent: #e4572e;
   --accent-soft: rgba(228, 87, 46, 0.1);
 
@@ -31,6 +32,7 @@
   --text-muted: #9a968f;
   --text-faint: #625f5a;
   --border: #282725;
+  --border-subtle: #1f1e1c;
   --accent: #ff7a50;
   --accent-soft: rgba(255, 122, 80, 0.12);
 
@@ -318,7 +320,7 @@ section {
 
 .projects {
   display: grid;
-  gap: 3.5rem;
+  gap: 3rem;
 }
 
 .project-media {
@@ -413,14 +415,19 @@ section {
   color: var(--text-muted);
 }
 
-/* Compact list (side projects, education) ------------------------------- */
+/* Compact list (side projects) -------------------------------------------
+   Rules sit between rows only: never above the list, never under the last row. */
 
-.list-title {
+.sub-heading {
   margin-top: 4rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
-.row-list {
-  border-top: 1px solid var(--border);
+.row-list li + li {
+  border-top: 1px solid var(--border-subtle);
 }
 
 .row {
@@ -428,7 +435,10 @@ section {
   grid-template-columns: 1fr auto;
   gap: 0.25rem 1rem;
   padding-block: 1.1rem;
-  border-bottom: 1px solid var(--border);
+}
+
+.row-list li:last-child .row {
+  padding-bottom: 0;
 }
 
 a.row {
@@ -479,14 +489,13 @@ a.row:hover .row-title {
 
 .jobs {
   display: grid;
-  gap: 0.25rem;
+  gap: 2rem;
 }
 
 .job {
   display: grid;
   grid-template-columns: 9.5rem 1fr;
   gap: 1.5rem;
-  padding-block: 1.25rem;
 }
 
 .job-date {
@@ -550,25 +559,20 @@ a.row:hover .row-title {
 
 .job details ul {
   margin-top: 0.75rem;
+  padding-left: 1.1rem;
+  list-style: disc;
   display: grid;
   gap: 0.5rem;
 }
 
 .job details li {
-  position: relative;
-  padding-left: 1rem;
+  padding-left: 0.15rem;
   font-size: 0.9375rem;
   color: var(--text-muted);
 }
 
-.job details li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  width: 0.35rem;
-  height: 1px;
-  background: var(--text-faint);
+.job details li::marker {
+  color: var(--text-faint);
 }
 
 .job-apps {
@@ -608,8 +612,8 @@ a.row:hover .row-title {
   border-color: var(--accent);
 }
 
+/* No rule: the contact section's bottom padding plus this adds up to 96px. */
 .site-footer {
-  border-top: 1px solid var(--border);
   padding-block: 2rem 3rem;
   font-size: 0.8125rem;
   color: var(--text-faint);
