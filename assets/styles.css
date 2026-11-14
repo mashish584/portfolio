@@ -7,11 +7,14 @@
   --bg: #fbfaf8;
   --surface: #f2f0ec;
   --text: #1a1917;
-  --text-muted: #6f6b64;
-  --text-faint: #a19c94;
+  --text-secondary: #45423d;
+  --text-muted: #615d57;
+  --text-faint: #716c65;
+  --text-display-muted: #8f8a82; /* large display text only (3:1) */
   --border: #e6e2db;
   --border-subtle: #f0ede8;
   --accent: #e4572e;
+  --accent-text: #b83b0e; /* accent that passes AA as small text */
   --accent-soft: rgba(228, 87, 46, 0.1);
 
   --font-sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -29,11 +32,14 @@
   --bg: #0f0f0e;
   --surface: #1a1a18;
   --text: #ecebe8;
+  --text-secondary: #c9c6c0;
   --text-muted: #9a968f;
-  --text-faint: #625f5a;
+  --text-faint: #8a867f;
+  --text-display-muted: #6e6b65;
   --border: #282725;
   --border-subtle: #1f1e1c;
   --accent: #ff7a50;
+  --accent-text: #ff7a50;
   --accent-soft: rgba(255, 122, 80, 0.12);
 
   color-scheme: dark;
@@ -125,10 +131,11 @@ section {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
@@ -181,8 +188,16 @@ section {
   transition: color 0.2s;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a[aria-current="true"] {
   color: var(--text);
+}
+
+.nav a[aria-current="true"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
 }
 
 .theme-toggle {
@@ -243,7 +258,7 @@ section {
 }
 
 .hero h1 .muted {
-  color: var(--text-faint);
+  color: var(--text-display-muted);
 }
 
 .hero p {
@@ -271,7 +286,7 @@ section {
 }
 
 .inline-link:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration-color: var(--accent);
 }
 
@@ -306,9 +321,9 @@ section {
 }
 
 .pill--primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background: var(--accent-text);
+  border-color: var(--accent-text);
+  color: var(--bg);
 }
 
 .pill svg {
@@ -333,6 +348,12 @@ section {
   align-items: flex-start;
   padding: 2.5rem 2rem 0;
   margin-bottom: 1.25rem;
+}
+
+@media (min-width: 601px) and (max-height: 900px) {
+  .project-media {
+    aspect-ratio: 16 / 8;
+  }
 }
 
 /* Tall phone mockups rise out of the bottom edge of the frame */
@@ -370,14 +391,17 @@ section {
   display: flex;
   gap: 1rem;
   flex-shrink: 0;
-  font-size: 0.875rem;
 }
 
+/* The one style for every external link on the page */
 .arrow-link {
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
   color: var(--text-muted);
+  white-space: nowrap;
   transition: color 0.2s;
 }
 
@@ -387,11 +411,13 @@ section {
   transition: transform 0.2s var(--ease);
 }
 
-.arrow-link:hover {
-  color: var(--accent);
+.arrow-link:hover,
+a.row:hover .arrow-link {
+  color: var(--accent-text);
 }
 
-.arrow-link:hover::after {
+.arrow-link:hover::after,
+a.row:hover .arrow-link::after {
   transform: translate(2px, -2px);
 }
 
@@ -450,7 +476,7 @@ a.row:hover {
 }
 
 a.row:hover .row-title {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .row-title {
@@ -459,11 +485,7 @@ a.row:hover .row-title {
 }
 
 .row-meta {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-faint);
-  text-align: right;
-  white-space: nowrap;
+  justify-self: end;
   align-self: center;
 }
 
@@ -481,7 +503,7 @@ a.row:hover .row-title {
   font-weight: 500;
   border-radius: 999px;
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-text);
   vertical-align: 0.15em;
 }
 
@@ -512,7 +534,7 @@ a.row:hover .row-title {
 }
 
 .job-title a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .job-role {
@@ -521,7 +543,7 @@ a.row:hover .row-title {
 }
 
 .job.current .job-date {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .job details {
@@ -531,9 +553,9 @@ a.row:hover .row-title {
 .job summary {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
   font-size: 0.8125rem;
-  color: var(--text-faint);
+  color: var(--text-muted);
   cursor: pointer;
   list-style: none;
   user-select: none;
@@ -544,13 +566,25 @@ a.row:hover .row-title {
   display: none;
 }
 
-.job summary::before {
-  content: "+";
-  font-family: var(--font-mono);
+.job summary::after {
+  content: "";
+  width: 0.4em;
+  height: 0.4em;
+  margin-top: -0.2em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s var(--ease);
 }
 
-.job details[open] summary::before {
-  content: "−";
+.job details[open] summary::after {
+  margin-top: 0.2em;
+  transform: rotate(-135deg);
+}
+
+.job details[open] .when-closed,
+.job details:not([open]) .when-open {
+  display: none;
 }
 
 .job summary:hover {
@@ -579,7 +613,6 @@ a.row:hover .row-title {
   display: flex;
   gap: 1rem;
   margin-top: 0.75rem;
-  font-size: 0.8125rem;
 }
 
 /* Contact / footer ------------------------------------------------------- */
@@ -607,8 +640,15 @@ a.row:hover .row-title {
   transition: color 0.2s, border-color 0.2s;
 }
 
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
 .email-link:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   border-color: var(--accent);
 }
 
@@ -632,13 +672,6 @@ a.row:hover .row-title {
   gap: 1.25rem;
 }
 
-.socials a {
-  transition: color 0.2s;
-}
-
-.socials a:hover {
-  color: var(--text);
-}
 
 /* Motion ----------------------------------------------------------------- */
 

@@ -211,28 +211,28 @@
         <li>
           <a class="row" href="https://play.google.com/store/apps/details?id=com.buddigo" target="_blank" rel="noopener">
             <span class="row-title">Buddigo <span class="badge">3rd · notJustHack</span></span>
-            <span class="row-meta">Play Store ↗</span>
+            <span class="row-meta arrow-link">Play Store</span>
             <span class="row-desc">A travel companion app focused on making trips easier.</span>
           </a>
         </li>
         <li>
           <a class="row" href="https://github.com/mashish584/fullstack-ep-app" target="_blank" rel="noopener">
             <span class="row-title">EP</span>
-            <span class="row-meta">GitHub ↗</span>
+            <span class="row-meta arrow-link">GitHub</span>
             <span class="row-desc">An event planning app for hosting and joining events.</span>
           </a>
         </li>
         <li>
           <a class="row" href="https://github.com/mashish584/foooooodies" target="_blank" rel="noopener">
             <span class="row-title">Foodies</span>
-            <span class="row-meta">GitHub ↗</span>
+            <span class="row-meta arrow-link">GitHub</span>
             <span class="row-desc">A food e-store built with GraphQL and Apollo.</span>
           </a>
         </li>
         <li>
           <a class="row" href="https://codepen.io/mehra_as" target="_blank" rel="noopener">
             <span class="row-title">UI experiments</span>
-            <span class="row-meta">CodePen ↗</span>
+            <span class="row-meta arrow-link">CodePen</span>
             <span class="row-desc">Earlier UI work in plain CSS and vanilla JS.</span>
           </a>
         </li>
@@ -257,8 +257,8 @@
           <div>
             <h3 class="job-title"><a href="https://bytelearn.com" target="_blank" rel="noopener">ByteLearn</a></h3>
             <p class="job-role">React Native Developer</p>
-            <details>
-              <summary>Highlights</summary>
+            <details open>
+              <summary><span class="when-closed">Show highlights</span><span class="when-open">Hide highlights</span></summary>
               <ul>
                 <li>Led the POC and built the whiteboard and AI Tutor flows.</li>
                 <li>Built secure authentication and premium subscription purchase flows end to end.</li>
@@ -280,8 +280,8 @@
           <div>
             <h3 class="job-title"><a href="https://locofast.com" target="_blank" rel="noopener">Locofast</a></h3>
             <p class="job-role">SDE-1, Mobile App Development</p>
-            <details>
-              <summary>Highlights</summary>
+            <details open>
+              <summary><span class="when-closed">Show highlights</span><span class="when-open">Hide highlights</span></summary>
               <ul>
                 <li>Owned end-to-end development of Locofast's key mobile apps.</li>
                 <li>Improved performance on low-end Android devices through profiling, state refactors that cut re-renders, and API caching.</li>
@@ -300,8 +300,8 @@
           <div>
             <h3 class="job-title"><a href="https://www.startxlabs.com/" target="_blank" rel="noopener">Startxlabs Technologies</a></h3>
             <p class="job-role">JavaScript Developer</p>
-            <details>
-              <summary>Highlights</summary>
+            <details open>
+              <summary><span class="when-closed">Show highlights</span><span class="when-open">Hide highlights</span></summary>
               <ul>
                 <li>Led frontend development across multiple app and web projects and shipped 7+ client apps.</li>
                 <li>Built reusable boilerplates that cut project setup time by 70%.</li>
@@ -332,7 +332,7 @@
     </section>
 
     <!-- Education -->
-    <section id="education">
+    <section id="education" data-nav="experience">
       <h2 class="section-label">Education</h2>
 
       <div class="jobs">
@@ -351,6 +351,11 @@
       <h2>Let's build something.</h2>
       <p>I'm always happy to talk about new projects, ideas, or opportunities. My inbox is open.</p>
       <a class="email-link" href="mailto:ashishmehra.dev@gmail.com">ashishmehra.dev@gmail.com</a>
+      <div class="contact-links">
+        <a class="arrow-link" href="https://www.linkedin.com/in/mehraas/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="arrow-link" href="https://github.com/mashish584" target="_blank" rel="noopener">GitHub</a>
+        <a class="arrow-link" href="/assets/ashish-mehra-resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      </div>
     </section>
   </main>
 
@@ -358,10 +363,10 @@
     <div class="wrap">
       <span>© <span id="year">2026</span> Ashish Mehra</span>
       <ul class="socials">
-        <li><a href="https://github.com/mashish584" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/mehraas/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://twitter.com/mehra_as" target="_blank" rel="noopener">X</a></li>
-        <li><a href="https://peerlist.io/mehraas" target="_blank" rel="noopener">Peerlist</a></li>
+        <li><a class="arrow-link" href="https://github.com/mashish584" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="arrow-link" href="https://www.linkedin.com/in/mehraas/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="arrow-link" href="https://twitter.com/mehra_as" target="_blank" rel="noopener">X</a></li>
+        <li><a class="arrow-link" href="https://peerlist.io/mehraas" target="_blank" rel="noopener">Peerlist</a></li>
       </ul>
     </div>
   </footer>
@@ -379,6 +384,31 @@
       });
 
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Nav: mark the section currently being read
+      var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+      var navSections = document.querySelectorAll("main > section");
+      var ticking = false;
+      function updateNav() {
+        ticking = false;
+        var line = window.innerHeight * 0.4;
+        var current = "";
+        navSections.forEach(function (sec) {
+          if (sec.getBoundingClientRect().top <= line) current = sec.getAttribute("data-nav") || sec.id;
+        });
+        if (window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+          current = navSections[navSections.length - 1].id;
+        }
+        navLinks.forEach(function (a) {
+          if (a.getAttribute("href") === "#" + current) a.setAttribute("aria-current", "true");
+          else a.removeAttribute("aria-current");
+        });
+      }
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateNav); }
+      }, { passive: true });
+      window.addEventListener("resize", updateNav);
+      updateNav();
 
       // Reveal on scroll
       var items = document.querySelectorAll(".reveal");
