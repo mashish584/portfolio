@@ -365,6 +365,14 @@ section {
   color: var(--text-muted);
 }
 
+.toolbox-next dt {
+  color: var(--accent-text);
+}
+
+.toolbox-next dd {
+  color: var(--text);
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
