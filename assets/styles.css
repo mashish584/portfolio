@@ -609,6 +609,14 @@ a.row:hover .row-title {
   letter-spacing: -0.01em;
 }
 
+/* Company name with a link pushed to the far end of the same line */
+.job-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .job-title a:hover {
   color: var(--accent-text);
 }
@@ -687,8 +695,60 @@ a.row:hover .row-title {
 
 .job-apps {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
   margin-top: 0.75rem;
+}
+
+/* Projects inside a job: name and links on one line, description below.
+   Rules sit between rows only, like the compact list. */
+
+.job-projects-label {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.job details .job-projects {
+  display: block;
+  margin-top: 0.25rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.job details .job-projects li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 1rem;
+  padding: 0.75rem 0;
+}
+
+.job details .job-projects li + li {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.job details .job-projects li:last-child {
+  padding-bottom: 0;
+}
+
+.job-project-name {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.job-project-links {
+  display: flex;
+  gap: 1rem;
+  align-self: center;
+}
+
+.job-project-desc {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
 }
 
 /* Contact / footer ------------------------------------------------------- */
